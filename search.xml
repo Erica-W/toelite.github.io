@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[添加博客评论插件来必力的踩坑笔记]]></title>
+    <title><![CDATA[魔改模板文件添加文章版权信息]]></title>
     <url>%2F2019%2F03%2F04%2Faddcopyright%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[魔改模板文件添加文章版权信息 毕竟是自己辛辛苦苦码的文章，还是想添加下版权信息，那么怎样在文章底部添加这样的版权信息标识呢？ 1.打开文件目录themes\next\layout_macro下的模板文件post.swig 在post-body标签里面添加自己定义的样式代码123456789101112131415161718&lt;div&gt; &#123;# 表示如果不在索引列表就加入以下HTML #&#125;&#123;% if not is_index %&#125; &lt;ul class=&quot;post-copyright&quot;&gt; &lt;li class=&quot;post-copyright-author&quot;&gt; &lt;strong&gt;本文作者：&lt;/strong&gt;&#123;&#123; theme.author &#125;&#125; &lt;/li&gt; &lt;li class=&quot;post-copyright-link&quot;&gt; &lt;strong&gt;本文链接：&lt;/strong&gt; &lt;a href = &quot;&#123;&#123; url_for(page.path) &#125;&#125;&quot; title=&quot;&#123;&#123; page.title &#125;&#125;&quot;&gt;&#123;&#123; page.path &#125;&#125;&lt;/a&gt; &lt;/li&gt; &lt;li class=&quot;post-copyright-license&quot;&gt; &lt;strong&gt;版权声明： &lt;/strong&gt; 本博客所有文章除特别声明外，均采用&lt;a href=&quot;http://creativecommons.org/licenses/by-nc-sa/3.0/cn/&quot; rel=&quot;external nofollow&quot;target=&quot;_blank&quot;&gt; CC BY-NC-SA 3.0 CN&lt;/a&gt; 许可协议。转载请注明出处！ &lt;/li&gt; &lt;/ul&gt; &#123;% endif %&#125;&lt;/div&gt; 找不到位置看这里 然后在themes\next\source\css_custom的用户自定义样式文件中添加copyright样式1234567.post-copyright &#123; margin: 0.5em 0 0; padding: 0.5em 1em; border-left: 3px solid #ff1700; background-color: #f8f8f8; list-style: none;&#125; OK,重新上传代码看效果就结束了]]></content>
       <categories>
         <category>搭建博客</category>
       </categories>
