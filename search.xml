@@ -16,7 +16,7 @@
   <entry>
     <title><![CDATA[添加博客评论插件来必力的踩坑笔记]]></title>
     <url>%2F2019%2F03%2F01%2Faddlivere%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[###添加博客评论插件来必力的踩坑笔记 NexT主题内置支持5款评论系统，分别是： DISQUS Facebook Comments HyperComments 网易云跟帖 来必力 为什么要用来必力呢？先说说我之前使用的几款评论插件： DISQUS：以前还不错，页面也简洁，但最近由于某种不可抗力原因（你懂的），导致无法翻墙的用户看不到评论框和回复内容，弃了。 网易云跟帖：官方宣布停止维护了，没办法只能放弃，和畅言一样 HyperComments：毛子的评论系统，只支持谷歌账号登录，只有英文界面。而且从2018.06.15起不再提供免费服务，放弃。 Facebook Comments ： 没使用过，但是对FB界面印象不好所以不想用 于是，为了实现：1.不翻墙使用户使用评论功能 2.界面美观。我最终选择了韩国的这款评论插件livere，又叫来必力（谁取的名字，土死了），它的主界面是这样的：↓ 点我进入 其实还是蛮可爱的…… 如何在NexT主题中使用呢？ 先使用邮箱注册账号 账号注册好后进入管理页面，点击安装代码，将里面的data-uid中的内容复制出来 接着打开你NexT的主题配置文件_config.yml 修改livere_uid = 你自己的uid注意等号后面有空格啊，不然不起效的 最后在你发布的文章上面，配置comments: true这篇文章就可以实现评论啦！是不是很简单（当初不知道为什么折腾了一下午，哭） 最后hexo clean &amp;&amp; hexo d发布吧 官方参考文档]]></content>
       <categories>
         <category>搭建博客</category>
       </categories>

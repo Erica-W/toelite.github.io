@@ -104,10 +104,13 @@
 <meta property="og:site_name" content="Coder Erica">
 <meta property="og:description" content="评论插件来必利">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-03-01T02:22:18.675Z">
+<meta property="og:image" content="http://pno9ji9sw.bkt.clouddn.com/%E6%9D%A5%E5%BF%85%E5%8A%9B%E4%B8%BB%E9%9D%A2%E6%9D%BF.png">
+<meta property="og:image" content="http://pno9ji9sw.bkt.clouddn.com/%E6%9D%A5%E5%BF%85%E5%8A%9BUID.png">
+<meta property="og:updated_time" content="2019-03-04T07:16:23.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="添加博客评论插件来必力的踩坑笔记">
 <meta name="twitter:description" content="评论插件来必利">
+<meta name="twitter:image" content="http://pno9ji9sw.bkt.clouddn.com/%E6%9D%A5%E5%BF%85%E5%8A%9B%E4%B8%BB%E9%9D%A2%E6%9D%BF.png">
 
 
 
@@ -420,12 +423,24 @@
                 
               
 
-              <time title="創建時間：2019-03-01 10:17:12 / 修改時間：10:22:18" itemprop="dateCreated datePublished" datetime="2019-03-01T10:17:12+08:00">2019-03-01</time>
+              <time title="創建時間：2019-03-01 10:17:12" itemprop="dateCreated datePublished" datetime="2019-03-01T10:17:12+08:00">2019-03-01</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-03-04 15:16:23" itemprop="dateModified" datetime="2019-03-04T15:16:23+08:00">2019-03-04</time>
               
             
           </span>
@@ -471,7 +486,7 @@
                 
                   <span class="post-meta-item-text">文章字數：</span>
                 
-                <span title="文章字數">0</span>
+                <span title="文章字數">672</span>
               
 
               
@@ -507,7 +522,39 @@
       
 
       
-        
+        <blockquote>
+<p>###添加博客评论插件来必力的踩坑笔记</p>
+</blockquote>
+<p>NexT主题内置支持5款评论系统，分别是：</p>
+<ol>
+<li>DISQUS </li>
+<li>Facebook Comments </li>
+<li>HyperComments </li>
+<li>网易云跟帖  </li>
+<li>来必力</li>
+</ol>
+<p>为什么要用来必力呢？先说说我之前使用的几款评论插件：</p>
+<p>DISQUS：以前还不错，页面也简洁，但最近由于某种不可抗力原因（你懂的），导致无法翻墙的用户看不到评论框和回复内容，弃了。</p>
+<p>网易云跟帖：官方宣布停止维护了，没办法只能放弃，和畅言一样</p>
+<p>HyperComments：毛子的评论系统，只支持谷歌账号登录，只有英文界面。而且从2018.06.15起不再提供免费服务，放弃。</p>
+<p>Facebook Comments ： 没使用过，但是对FB界面印象不好所以不想用</p>
+<p>于是，为了实现：<br>1.不翻墙使用户使用评论功能 2.界面美观。我最终选择了韩国的这款评论插件livere，又叫来必力（谁取的名字，土死了），它的主界面是这样的：↓ <a href="https://www.livere.com/" target="_blank" rel="noopener">点我进入</a></p>
+<p><img src="http://pno9ji9sw.bkt.clouddn.com/%E6%9D%A5%E5%BF%85%E5%8A%9B%E4%B8%BB%E9%9D%A2%E6%9D%BF.png" alt="控制面板"></p>
+<p>其实还是蛮可爱的……</p>
+<p>如何在NexT主题中使用呢？</p>
+<blockquote>
+<p>先使用邮箱注册账号</p>
+</blockquote>
+<p>账号注册好后进入管理页面，点击安装代码，将里面的data-uid中的内容复制出来</p>
+<p><img src="http://pno9ji9sw.bkt.clouddn.com/%E6%9D%A5%E5%BF%85%E5%8A%9BUID.png" alt="uid"></p>
+<blockquote>
+<p>接着打开你NexT的主题配置文件_config.yml</p>
+</blockquote>
+<p>修改<code>livere_uid = 你自己的uid</code><br>注意等号后面有空格啊，不然不起效的</p>
+<p>最后在你发布的文章上面，配置<code>comments: true</code>这篇文章就可以实现评论啦！<br>是不是很简单（当初不知道为什么折腾了一下午，哭）</p>
+<p>最后<code>hexo clean &amp;&amp; hexo d</code>发布吧</p>
+<p>官方参考<a href="https://theme-next.iissnan.com/third-party-services.html" target="_blank" rel="noopener">文档</a></p>
+
       
     </div>
 
@@ -787,7 +834,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="所需總閱讀時間">5 分鐘</span>
+    <span title="所需總閱讀時間">6 分鐘</span>
   
 </div>
 
