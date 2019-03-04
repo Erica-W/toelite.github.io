@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[服务器安装最新内核并开启BBR]]></title>
+    <url>%2F2019%2F03%2F04%2Fvultr-bbr%2F</url>
+    <content type="text"><![CDATA[简单了解下BBR 使用之前先简要介绍下BBR是什么东西 BBR是谷歌公司开发了一种优化TCP连接速度的算法，提高流量的发包效率和利用率，这样可以降低丢包，从而提高速度。并且有个很重要的特性，仅需单向优化，就可以大幅度提高性能。BBR的原理是：1是一种基于「丢包反馈」的被动式的拥塞控制机制，其依据网络中的丢包事件来做网络拥塞判断。即便网络中的负载很高时，只要没有产生拥塞丢包，协议就不会主动降低自己的发送速度 这个BBR模块已经集成在4.9版本以后的linux内核中。CentOS如果要使用，就需要更新到最新的内核。 它的谷歌项目地址是：https://github.com/google/bbr 服务器安装最新内核并开启BBR 示例基于Vultr+CentOS 7 1.更新系统yum update -y 2.安装内核rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm yum --enablerepo=elrepo-kernel install kernel-ml 3.查看安装内核并设置awk -F\&#39; &#39;$1==&quot;menuentry &quot; {print i++ &quot; : &quot; $2}&#39; /etc/grub2.cfg一般情况下返回如下 4.启动设置 （0号位需要启动的内核，默认安装内核均是0）就是修改grub启动文件，将新安装的内核设置为默认内核，然后重启机器grub2-set-default 0 5.重启系统reboot 重启后输入uname -a查看内核是否为最新 6.vi编辑etc目录下的sysctl.conf文件在末尾添加net.core.default_qdisc = fq net.ipv4.tcp_congestion_control = bbr两行，:wq保存并退出编辑 7.sysctl -p保存执行更改的参数 8.测试BBR开启是否成功： 输入sysctl net.ipv4.tcp_available_congestion_control返回net.ipv4.tcp_available_congestion_control = reno cubic bbr 输入sysctl -n net.ipv4.tcp_congestion_control返回bbr 输入ps -ef | grep bbr返回类似root 3627 3525 0 14:06 pts/0 00:00:00 grep --color=auto bbr查看bbr是否已开启并加入进程中(反正看返回的都带bbr就行啦) 现在BBR已成功开启，反正经我实验发现，BBR开了之后只是提速！该丢包还是丢包……可能看服务器线路稳定情况吧……]]></content>
+      <categories>
+        <category>科学上网</category>
+      </categories>
+      <tags>
+        <tag>翻墙</tag>
+        <tag>shadowsocks</tag>
+        <tag>科学上网</tag>
+        <tag>服务器优化</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[魔改模板文件添加文章版权信息]]></title>
     <url>%2F2019%2F03%2F04%2Faddcopyright%2F</url>
     <content type="text"><![CDATA[魔改模板文件添加文章版权信息 毕竟是自己辛辛苦苦码的文章，还是想添加下版权信息，那么怎样在文章底部添加这样的版权信息标识呢？ 1.打开文件目录themes\next\layout_macro下的模板文件post.swig 在post-body标签里面添加自己定义的样式代码123456789101112131415161718&lt;div&gt; &#123;# 表示如果不在索引列表就加入以下HTML #&#125;&#123;% if not is_index %&#125; &lt;ul class=&quot;post-copyright&quot;&gt; &lt;li class=&quot;post-copyright-author&quot;&gt; &lt;strong&gt;本文作者：&lt;/strong&gt;&#123;&#123; theme.author &#125;&#125; &lt;/li&gt; &lt;li class=&quot;post-copyright-link&quot;&gt; &lt;strong&gt;本文链接：&lt;/strong&gt; &lt;a href = &quot;&#123;&#123; url_for(page.path) &#125;&#125;&quot; title=&quot;&#123;&#123; page.title &#125;&#125;&quot;&gt;&#123;&#123; page.path &#125;&#125;&lt;/a&gt; &lt;/li&gt; &lt;li class=&quot;post-copyright-license&quot;&gt; &lt;strong&gt;版权声明： &lt;/strong&gt; 本博客所有文章除特别声明外，均采用&lt;a href=&quot;http://creativecommons.org/licenses/by-nc-sa/3.0/cn/&quot; rel=&quot;external nofollow&quot;target=&quot;_blank&quot;&gt; CC BY-NC-SA 3.0 CN&lt;/a&gt; 许可协议。转载请注明出处！ &lt;/li&gt; &lt;/ul&gt; &#123;% endif %&#125;&lt;/div&gt; 找不到位置看这里 然后在themes\next\source\css_custom的用户自定义样式文件中添加copyright样式1234567.post-copyright &#123; margin: 0.5em 0 0; padding: 0.5em 1em; border-left: 3px solid #ff1700; background-color: #f8f8f8; list-style: none;&#125; OK,重新上传代码看效果就结束了]]></content>
